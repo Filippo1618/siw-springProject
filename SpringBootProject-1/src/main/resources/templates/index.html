@@ -1,15 +1,44 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
-    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
-    
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Getting Started: Serving Web Content</title>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
 </head>
-<body>
-    <p th:text="'Hello' + '!'" />
-    <a th:href="@{/showAttivita}">Vai alle attivita della giornata</a>
-    <a th:href="@{/addAllievo}">Registra un nuovo allievo</a>
-    <a th:href="@{/allievi}">Lista degli allievi iscritti</a>
+<body bgcolor="#0000ff" background="/img/img-ecole-42.jpg"
+	marginheight="10">
+	<!--   <p th:text="'Benvenuti nella home page' + '!'" />-->
+	<section>
+		<div align="center">
+			<h2 align="center">Benvenuti nella home page della scuola 
+				di formazione 42</h2>
+			<table>
+				<tr>
+					<th>Attivita per responsabili:</th>
+				</tr>
+				<tr>
+					<td><a th:href="@{/addAttivita}">Aggiungi un' attivita </a></td>
+				</tr>
+				<tr>
+					<td><a th:href="@{/addAllievo}">Registra un nuovo allievo</a></td>					
+				</tr>
+
+			</table>
+			<br>
+			<table>
+				<tr>
+					<th>Attivita per allievi:</th>
+				</tr>
+				<tr>
+					<td><a th:href="@{/attivitaList}">Vai alle attivita della giornata</a> </td>
+				</tr>
+				<tr>
+					<td><a th:href="@{/allievi}">Lista degli allievi iscritti</a></td> 
+				</tr>
+			</table>
+
+		</div>
+	</section>
 </body>
 </html>

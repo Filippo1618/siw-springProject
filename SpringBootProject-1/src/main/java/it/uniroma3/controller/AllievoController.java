@@ -24,6 +24,8 @@ public class AllievoController {
 	@Autowired
 	private AllievoValidator validator;
 
+
+
 	@RequestMapping("/allievi")
 	public String allievi(Model model) {
 		model.addAttribute("allievi", this.allievoService.findAll());
@@ -61,4 +63,7 @@ public class AllievoController {
 
 		return "allievoForm";
 	}
+	
+
+
 }

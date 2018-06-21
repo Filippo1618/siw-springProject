@@ -23,7 +23,7 @@ public class Centro {
 	@Column(nullable= false)
 	private int capienza;
 
-	@OneToMany
+	@OneToMany(mappedBy ="centro")
 	private List<Attivita> listaAttivita;
 
 	public Centro(){}
@@ -34,19 +34,13 @@ public class Centro {
 		this.capienza = capienza;
 	}
 
-
-
 	public List<Attivita> getListaAttivita() {
 		return listaAttivita;
 	}
 
-
-
 	public void setListaAttivita(List<Attivita> listaAttivita) {
 		this.listaAttivita = listaAttivita;
 	}
-
-
 
 	public Long getId() {
 		return id;

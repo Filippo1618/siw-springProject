@@ -1,21 +1,30 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>Attivita'</title>
+<title>Lista Attivita:</title>
+<link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+
 </head>
 <body>
-    <div>
-    	<h4>Attivita disponibili</h4>
+	<div>
+		<h4>Lista attivita':</h4>
 		<div>
 			<table>
 				<tr>
 					<th>Nome:</th>
 				</tr>
-				<tr th:each="attivita : ${listaAttivita}">
-					<td><a th:href="@{'/customer' + '/' + ${customer.id}}"><span th:text="${customer.name}"></span></a></td>					
-                </tr>
-            </table>
-   		</div>
-    </div>
+				<tr th:each="attivita : ${attivitaList}">
+					<td><span th:text="${attivita.nome}"></span></td>
+					<td><span th:text="${attivita.dataSvolgimento}"></span></td>
+					
+
+					<td><a th:href="@{'/attivita' + '/' + ${attivita.id}}"><span>DETTAGLI</span></a></td>
+
+
+				</tr>
+			</table>
+		</div>
+	</div>
 </body>
 </html>

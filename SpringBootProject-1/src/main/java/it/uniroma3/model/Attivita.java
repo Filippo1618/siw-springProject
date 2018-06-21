@@ -9,8 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
@@ -23,16 +25,20 @@ public class Attivita {
 	@Column(nullable = false)
 	private String nome;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataSvolgimento;
 
 	@ManyToMany(mappedBy="attivitaAllievo")
 	private List<Allievo> listaAllievi;
+	
+	@ManyToOne
+	private Centro centro;
 
 	public Attivita() {}
 
-	public Attivita(String nome) {
+	public Attivita(String nome, Date data) {
 		this.nome = nome;
+		this.dataSvolgimento = data;
 	}
 
 	public Long getId() {
@@ -68,5 +74,14 @@ public class Attivita {
 	public void setDataSvolgimento(Date dataSvolgimento) {
 		this.dataSvolgimento = dataSvolgimento;
 	}
+
+	public Centro getCentro() {
+		return centro;
+	}
+
+	public void setCentro(Centro centro) {
+		this.centro = centro;
+	}
+	
 
 }
